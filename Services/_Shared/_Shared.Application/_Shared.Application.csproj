@@ -7,13 +7,13 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
     <ProjectReference Include="..\_Shared.Domain\_Shared.Domain.csproj" />
     <ProjectReference Include="..\_Shared.Infrastructure\_Shared.Infrastructure.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Messages\" />
   </ItemGroup>
 
 </Project>

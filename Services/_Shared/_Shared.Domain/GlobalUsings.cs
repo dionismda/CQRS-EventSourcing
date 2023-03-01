@@ -1,1 +1,1 @@
-﻿
+﻿global using _Shared.Domain.Messages;

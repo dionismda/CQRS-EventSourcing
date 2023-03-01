@@ -1,4 +1,4 @@
-﻿namespace _Shared.Application.Messages;
+﻿namespace _Shared.Domain.Messages;
 
 public abstract class Message
 {
