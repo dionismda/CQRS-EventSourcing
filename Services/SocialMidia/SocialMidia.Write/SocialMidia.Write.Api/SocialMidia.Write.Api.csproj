@@ -10,4 +10,9 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\_Shared\_Shared.Api\_Shared.Api.csproj" />
+    <ProjectReference Include="..\SocialMidia.Write.Application\SocialMidia.Write.Application.csproj" />
+  </ItemGroup>
+
 </Project>

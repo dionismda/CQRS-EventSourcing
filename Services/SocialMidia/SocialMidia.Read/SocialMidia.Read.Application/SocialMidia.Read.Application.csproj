@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\_Shared\_Shared.Application\_Shared.Application.csproj" />
     <ProjectReference Include="..\SocialMidia.Read.Domain\SocialMidia.Read.Domain.csproj" />
     <ProjectReference Include="..\SocialMidia.Read.Infrastructure\SocialMidia.Read.Infrastructure.csproj" />
   </ItemGroup>
