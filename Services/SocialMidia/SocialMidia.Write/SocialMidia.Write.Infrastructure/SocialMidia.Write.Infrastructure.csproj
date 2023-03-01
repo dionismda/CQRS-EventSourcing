@@ -7,4 +7,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\_Shared\_Shared.Infrastructure\_Shared.Infrastructure.csproj" />
+    <ProjectReference Include="..\SocialMidia.Write.Domain\SocialMidia.Write.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
