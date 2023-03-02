@@ -1,10 +1,9 @@
-version: "3.4"
+version: "3.8"
 
 services:
 
   zookeeper:
     image: bitnami/zookeeper
-    restart: always
     ports:
       - "2181:2181"
     volumes:
@@ -16,7 +15,6 @@ services:
     image: bitnami/kafka
     ports:
       - "9092:9092"
-    restart: always
     volumes:
       - "kafka_data:/bitnami"
     environment:
@@ -25,17 +23,7 @@ services:
       - KAFKA_LISTENERS=PLAINTEXT://:9092
       - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://localhost:9092
     depends_on:
-      - zookeeper
-      
-  mongoDb:
-    image: mongo:latest
-    ports:
-      - "27017:27017"
-    restart: always
-    volumes:
-      - "${MONGO_VOLUMES}:/data/db"
-    networks:
-      - mydockernetwork      
+      - zookeeper              
       
   postgressDb:
     image: postgres
@@ -51,6 +39,18 @@ services:
     networks:
       - mydockernetwork
       
+  mongo:
+    image: mongo  
+
+  mongoexpress:
+    image: mongo-express
+    ports:
+      - "8081:8081"
+    links:
+      - mongo
+    environment: 
+      - ME_CONFIG_MONGODB_URL=mongodb://mongo:27017  
+     
 
 volumes:
   zookeeper_data:
@@ -60,4 +60,4 @@ volumes:
       
 networks:
   mydockernetwork:
-    driver: bridge         
+    driver: bridge    
