@@ -1,4 +1,4 @@
-﻿namespace SocialMidia.Read.Infrastructure.Repositories;
+﻿namespace SocialMidia.Write.Infrastructure.Repositories;
 
 public class EventStoreRepository : IEventStoreRepository
 {

@@ -2,6 +2,6 @@
 
 public interface ICommandDispatcher
 {
-    Task Handle<TCommand>(TCommand command, CancellationToken cancellationToken)
+    Task Handle<TCommand>(TCommand command)
         where TCommand : BaseCommand;
 }

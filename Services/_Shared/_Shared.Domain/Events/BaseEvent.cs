@@ -2,8 +2,8 @@
 
 public abstract class BaseEvent : Message
 {
-    public int Version { get; private set; }
-    public string Type { get; private set; }
+    public int Version { get; set; }
+    public string Type { get; set; }
 
     protected BaseEvent(string type)
     {

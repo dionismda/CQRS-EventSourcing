@@ -1,4 +1,4 @@
-﻿namespace SocialMidia.Read.Infrastructure.Configurations;
+﻿namespace SocialMidia.Write.Infrastructure.Configurations;
 
 public class MongoDbConfiguration
 {

@@ -1,4 +1,4 @@
-﻿namespace SocialMidia.Read.Domain.Interfaces;
+﻿namespace SocialMidia.Write.Domain.Interfaces;
 
 public interface IEventStoreRepository
 {

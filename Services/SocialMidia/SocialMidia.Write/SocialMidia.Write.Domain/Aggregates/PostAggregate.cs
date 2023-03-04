@@ -12,15 +12,15 @@ public class PostAggregate : AggregateRoot
         set => _active = value; 
     }
 
-    public PostAggregate() : base()
+    public PostAggregate()
     {
     }
 
-    public PostAggregate(string author, string message) : this()
+    public PostAggregate(Guid id, string author, string message) : this()
     {
         AddEvent(new PostCreatedEvent
         {
-            Id = _id,
+            Id = id,
             Author = author,
             Message = message,
             DatePosted = DateTime.Now
