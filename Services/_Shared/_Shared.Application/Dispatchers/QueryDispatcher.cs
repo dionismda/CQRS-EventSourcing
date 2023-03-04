@@ -9,12 +9,12 @@ public class QueryDispatcher : IQueryDispatcher
         _serviceProvider = serviceProvider;
     }
 
-    public async Task<TResultQuery> Handle<TQuery, TResultQuery>(TQuery query, CancellationToken cancellationToken)
+    public async Task<TResultQuery> Handle<TQuery, TResultQuery>(TQuery query)
         where TQuery : BaseQuery
     {
         if (_serviceProvider.GetService(typeof(IQueryHandler<TQuery, TResultQuery>)) is not IQueryHandler<TQuery, TResultQuery> service)
             throw new InvalidCastException("Could not find injection QueryHandler");
 
-        return await service.Handle((dynamic)query, cancellationToken);
+        return await service.Handle((dynamic)query);
     }
 }

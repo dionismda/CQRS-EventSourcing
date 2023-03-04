@@ -9,11 +9,6 @@ public abstract class AggregateRoot
 
     public int Version { get; set; } = -1;
 
-    protected AggregateRoot()
-    {
-        _id = Guid.NewGuid();
-    }
-
     public IEnumerable<BaseEvent> GetUncommittedChanges() => _changes;
 
     public void MarkChangesAsCommitted() => _changes.Clear();

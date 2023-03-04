@@ -12,9 +12,9 @@ public class Startup
     public void ConfigureServices(IServiceCollection services)
     {
         services            
-            .InjectSocialMidiaApplication()
-            .InjectSocialMidiaDomain()
-            .InjectSocialMidiaInfrastructure()
+            .InjectSocialMidiaReadApplication()
+            .InjectSocialMidiaReadDomain()
+            .InjectSocialMidiaReadInfrastructure()
             .InjectShared();
     }
 

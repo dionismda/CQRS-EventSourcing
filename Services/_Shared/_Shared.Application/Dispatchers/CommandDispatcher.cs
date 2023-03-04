@@ -9,12 +9,12 @@ public class CommandDispatcher : ICommandDispatcher
         _serviceProvider = serviceProvider;
     }
 
-    public async Task Handle<TCommand>(TCommand command, CancellationToken cancellationToken)
+    public async Task Handle<TCommand>(TCommand command)
         where TCommand : BaseCommand
     {
         if (_serviceProvider.GetService(typeof(ICommandHandler<TCommand>)) is not ICommandHandler<TCommand> service)
             throw new InvalidCastException("Could not find injection CommandHandler");
 
-        await service.Handle((dynamic)command, cancellationToken);
+        await service.HandleAsync((dynamic)command);
     }
 }

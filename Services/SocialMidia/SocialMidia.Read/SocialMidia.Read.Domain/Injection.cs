@@ -2,7 +2,7 @@
 
 public static class Injection
 {
-    public static IServiceCollection InjectSocialMidiaDomain(this IServiceCollection services)
+    public static IServiceCollection InjectSocialMidiaReadDomain(this IServiceCollection services)
     {
         return services;
     }

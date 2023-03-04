@@ -3,5 +3,5 @@
 public interface ICommandHandler<in TCommand>
     where TCommand : BaseCommand
 {
-    Task Handle(TCommand command, CancellationToken cancellation);
+    Task HandleAsync(TCommand command);
 }

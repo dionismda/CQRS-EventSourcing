@@ -2,6 +2,6 @@
 
 public interface IQueryDispatcher
 {
-    Task<TResultQuery> Handle<TQuery, TResultQuery>(TQuery query, CancellationToken cancellationToken)
+    Task<TResultQuery> Handle<TQuery, TResultQuery>(TQuery query)
         where TQuery : BaseQuery;
 }
