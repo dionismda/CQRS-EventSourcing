@@ -13,3 +13,8 @@ global using SocialMidia.Write.Domain.Aggregates;
 global using SocialMidia.Write.Domain.Exceptions;
 global using System.Data;
 global using SocialMidia.Write.Infrastructure.Handlers;
+global using _Shared.Domain.Produces;
+global using System.Text.Json;
+global using Confluent.Kafka;
+global using Microsoft.Extensions.Configuration;
+global using SocialMidia.Write.Infrastructure.Produces;
