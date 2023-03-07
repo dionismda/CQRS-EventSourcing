@@ -1,2 +1,3 @@
-﻿global using Microsoft.Extensions.DependencyInjection;
-global using _Shared.Domain.Interfaces;
+﻿global using _Shared.Domain.Entities;
+global using Microsoft.Extensions.DependencyInjection;
+global using SocialMidia.Read.Domain.Entites;
