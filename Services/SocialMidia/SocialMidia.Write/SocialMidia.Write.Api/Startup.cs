@@ -1,4 +1,6 @@
-﻿namespace SocialMidia.Write.Api;
+﻿using Microsoft.Extensions.Configuration;
+
+namespace SocialMidia.Write.Api;
 
 public class Startup
 {
@@ -14,7 +16,7 @@ public class Startup
         services
             .InjectSocialMidiaWriteApplication()
             .InjectSocialMidiaWriteDomain()
-            .InjectSocialMidiaWriteInfrastructure()
+            .InjectSocialMidiaWriteInfrastructure(Configuration)
             .InjectShared();
     }
 
