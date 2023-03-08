@@ -3,11 +3,11 @@
 public static class Injection
 {
     public static IServiceCollection InjectSocialMidiaWriteInfrastructure(this IServiceCollection services, IConfiguration configuration)
-    {        
+    {
         services.AddScoped<IEventModel, EventModel>();
         services.AddScoped<IEventStoreRepository, EventStoreRepository>();
         services.AddScoped<IEventSourcingHandler<PostAggregate>, PostEventSourcingHandler>();
-        services.AddScoped<IEventStore, EventStore>();
+        services.AddScoped<IEventStore, SocialMidiaEventStore>();
         services.AddScoped<IEventProducer, EventProducer>();
 
         var mongoDbconfiguration = configuration.GetSection(nameof(MongoDbConfiguration));
@@ -23,6 +23,15 @@ public static class Injection
         {
             opt.BootstrapServers = mongoDbconfiguration[nameof(ProducerConfig.BootstrapServers)];
         });
+
+        BsonClassMap.RegisterClassMap<BaseEvent>();
+        BsonClassMap.RegisterClassMap<PostCreatedEvent>();
+        BsonClassMap.RegisterClassMap<MessageUpdatedEvent>();
+        BsonClassMap.RegisterClassMap<PostLikedEvent>();
+        BsonClassMap.RegisterClassMap<CommentAddedEvent>();
+        BsonClassMap.RegisterClassMap<CommentUpdatedEvent>();
+        BsonClassMap.RegisterClassMap<CommentRemovedEvent>();
+        BsonClassMap.RegisterClassMap<PostRemovedEvent>();
 
         return services;
     }

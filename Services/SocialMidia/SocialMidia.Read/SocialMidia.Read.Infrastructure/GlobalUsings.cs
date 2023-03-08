@@ -1,1 +1,11 @@
 ﻿global using Microsoft.Extensions.DependencyInjection;
+global using Microsoft.EntityFrameworkCore;
+global using SocialMidia.Read.Domain.Entites;
+global using Microsoft.Extensions.Configuration;
+global using SocialMidia.Read.Infrastructure.Persistence;
+global using SocialMidia.Read.Domain.Interfaces;
+global using _Shared.Domain.Core.Events;
+global using _Shared.Infrastructure.Read.Interfaces;
+global using SocialMidia.Read.Infrastructure.Repositories;
+global using SocialMidia.Read.Infrastructure.Extensions;
+global using SocialMidia.Read.Infrastructure.Handlers;

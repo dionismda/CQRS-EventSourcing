@@ -1,4 +1,4 @@
-﻿namespace _Shared.Domain.Events;
+﻿namespace _Shared.Domain.Core.Events;
 
 public abstract class BaseEvent : Message
 {

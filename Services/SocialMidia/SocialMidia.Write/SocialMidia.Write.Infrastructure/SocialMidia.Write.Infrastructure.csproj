@@ -6,12 +6,9 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
-  <ItemGroup>    
-    <PackageReference Include="MongoDB.Driver" Version="2.19.0" />
-  </ItemGroup>	
-	
+
   <ItemGroup>
-    <ProjectReference Include="..\..\..\_Shared\_Shared.Infrastructure\_Shared.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\..\_Shared\_Shared.Infrastructure\_Shared.Infrastructure.Write.csproj" />
     <ProjectReference Include="..\SocialMidia.Write.Domain\SocialMidia.Write.Domain.csproj" />
   </ItemGroup>
 

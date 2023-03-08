@@ -1,4 +1,4 @@
-﻿namespace _Shared.Domain;
+﻿namespace _Shared.Domain.Core;
 
 public static class Injection
 {

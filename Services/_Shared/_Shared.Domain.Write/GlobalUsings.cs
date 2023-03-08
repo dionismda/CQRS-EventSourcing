@@ -1,0 +1,1 @@
+﻿global using _Shared.Domain.Core.Events;

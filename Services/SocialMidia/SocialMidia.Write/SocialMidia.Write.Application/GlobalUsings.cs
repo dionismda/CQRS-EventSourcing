@@ -5,4 +5,4 @@ global using Microsoft.Extensions.DependencyInjection;
 global using SocialMidia.Write.Application.Commands;
 global using SocialMidia.Write.Application.Handlers;
 global using SocialMidia.Write.Domain.Aggregates;
-global using SocialMidia.Write.Domain.Interfaces;
+global using _Shared.Domain.Core.Write.Interfaces;

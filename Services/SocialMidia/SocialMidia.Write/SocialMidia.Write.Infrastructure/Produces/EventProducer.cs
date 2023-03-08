@@ -9,7 +9,8 @@ public class EventProducer : IEventProducer
         _config = config.Value;
     }
 
-    public async Task ProduceAsync<T>(string topic, T @event) where T : BaseEvent
+    public async Task ProduceAsync<TEvent>(string topic, TEvent @event) 
+        where TEvent : BaseEvent
     {
         using var producer = new ProducerBuilder<string, string>(_config)
             .SetKeySerializer(Serializers.Utf8)
