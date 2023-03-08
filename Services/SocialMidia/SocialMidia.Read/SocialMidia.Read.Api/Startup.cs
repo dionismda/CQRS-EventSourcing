@@ -14,7 +14,7 @@ public class Startup
         services            
             .InjectSocialMidiaReadApplication()
             .InjectSocialMidiaReadDomain()
-            .InjectSocialMidiaReadInfrastructure()
+            .InjectSocialMidiaReadInfrastructure(Configuration)
             .InjectShared();
     }
 
@@ -28,7 +28,7 @@ public class Startup
         app.UseHttpsRedirection();
 
         app.UseAuthentication();
-        app.UseAuthorization();
+        //app.UseAuthorization();
 
         app.UseEndpoints(endpoints =>
         {
