@@ -1,4 +1,7 @@
-﻿namespace SocialMidia.Write.Infrastructure;
+﻿using _Shared.Domain.Core.Write.Interfaces;
+using _Shared.Domain.Core.Write.Produces;
+
+namespace SocialMidia.Write.Infrastructure;
 
 public static class Injection
 {

@@ -1,4 +1,4 @@
-﻿namespace _Shared.Domain.Produces;
+﻿namespace _Shared.Domain.Core.Write.Produces;
 
 public interface IEventProducer
 {

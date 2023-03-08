@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\_Shared\_Shared.Infrastructure\_Shared.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\..\_Shared\_Shared.Infrastructure.Read\_Shared.Infrastructure.Read.csproj" />
     <ProjectReference Include="..\SocialMidia.Read.Domain\SocialMidia.Read.Domain.csproj" />
   </ItemGroup>
 

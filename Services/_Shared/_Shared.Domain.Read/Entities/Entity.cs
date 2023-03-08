@@ -1,4 +1,4 @@
-﻿namespace _Shared.Domain.Entities;
+﻿namespace _Shared.Domain.Core.Read.Entities;
 
 public abstract class Entity
 {

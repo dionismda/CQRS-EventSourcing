@@ -1,4 +1,4 @@
-namespace SocialMidia.Write.Domain.Events;
+namespace _Shared.Domain.Core.Events;
 
 public class CommentUpdatedEvent : BaseEvent
 {

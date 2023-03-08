@@ -10,11 +10,12 @@
 	<PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="7.0.0" />	  
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
 	<PackageReference Include="Microsoft.Extensions.Options" Version="7.0.1" />
-    <PackageReference Include="Confluent.Kafka" Version="1.8.2"/>
+    <PackageReference Include="Confluent.Kafka" Version="1.8.2" />
+	<PackageReference Include="MongoDB.Driver" Version="2.19.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\_Shared.Domain\_Shared.Domain.csproj" />
+    <ProjectReference Include="..\_Shared.Domain\_Shared.Domain.Core.csproj" />
   </ItemGroup>
 
 </Project>

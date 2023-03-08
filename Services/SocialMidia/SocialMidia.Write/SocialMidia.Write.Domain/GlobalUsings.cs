@@ -1,5 +1,4 @@
-﻿global using _Shared.Domain.Events;
-global using _Shared.Domain.Aggregates;
-global using SocialMidia.Write.Domain.Events;
-global using Microsoft.Extensions.DependencyInjection;
-global using _Shared.Domain.Interfaces;
+﻿global using Microsoft.Extensions.DependencyInjection;
+global using _Shared.Domain.Core.Events;
+global using _Shared.Domain.Core.Write.Aggregates;
+global using _Shared.Domain.Core.Write.Interfaces;

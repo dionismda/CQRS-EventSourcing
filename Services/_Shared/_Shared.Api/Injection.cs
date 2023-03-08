@@ -1,4 +1,6 @@
-﻿namespace _Shared.Api;
+﻿using _Shared.Domain.Core;
+
+namespace _Shared.Api;
 
 public static class Injection
 {

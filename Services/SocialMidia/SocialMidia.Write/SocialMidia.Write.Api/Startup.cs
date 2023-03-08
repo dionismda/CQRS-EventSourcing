@@ -1,6 +1,4 @@
-﻿using Microsoft.Extensions.Configuration;
-
-namespace SocialMidia.Write.Api;
+﻿namespace SocialMidia.Write.Api;
 
 public class Startup
 {
@@ -20,7 +18,7 @@ public class Startup
             .InjectShared();
     }
 
-    public void Configure(IApplicationBuilder app,IWebHostEnvironment env)
+    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     {
         if (env.IsDevelopment())
             app.UseDeveloperExceptionPage();

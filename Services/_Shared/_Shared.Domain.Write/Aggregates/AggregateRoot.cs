@@ -1,4 +1,4 @@
-﻿namespace _Shared.Domain.Aggregates;
+﻿namespace _Shared.Domain.Core.Write.Aggregates;
 
 public abstract class AggregateRoot
 {
@@ -15,7 +15,7 @@ public abstract class AggregateRoot
 
     private void ApplyChange(BaseEvent @event, bool isNew)
     {
-        var method = this.GetType().GetMethod("Apply", new Type[] { @event.GetType() });
+        var method = GetType().GetMethod("Apply", new Type[] { @event.GetType() });
 
         if (method == null)
             throw new ArgumentNullException(nameof(method), $"The Apply method was not found in the aggregate for {@event.GetType().Name}!");

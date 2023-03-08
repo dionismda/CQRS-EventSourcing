@@ -1,4 +1,4 @@
-﻿namespace _Shared.Domain.Interfaces;
+﻿namespace _Shared.Domain.Core.Write.Interfaces;
 
 public interface IEventStore
 {
