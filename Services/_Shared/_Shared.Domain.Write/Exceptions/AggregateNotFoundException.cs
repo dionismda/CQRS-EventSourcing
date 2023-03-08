@@ -1,4 +1,4 @@
-﻿namespace SocialMidia.Write.Domain.Exceptions;
+﻿namespace _Shared.Domain.Core.Write.Exceptions;
 
 public class AggregateNotFoundException : Exception
 {

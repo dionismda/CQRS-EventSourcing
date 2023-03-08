@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\_Shared.Domain.Write\_Shared.Domain.Core.Write.csproj" />
     <ProjectReference Include="..\_Shared.Domain\_Shared.Domain.Core.csproj" />
   </ItemGroup>
 

@@ -1,4 +1,4 @@
-﻿namespace SocialMidia.Write.Infrastructure.Events;
+﻿namespace _Shared.Infrastructure.Write.Events;
 
 public class EventModel : IEventModel
 {
