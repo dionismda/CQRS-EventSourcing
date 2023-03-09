@@ -13,16 +13,22 @@ public class Startup
     {
         services
             .InjectSocialMidiaWriteApplication()
-            .InjectSocialMidiaWriteDomain()
-            .InjectSocialMidiaWriteInfrastructure(Configuration)
-            .InjectShared();
+            .InjectSocialMidiaWriteInfrastructure(Configuration);
+
+        services.AddControllers();
+        services.AddEndpointsApiExplorer();
+        services.AddSwaggerGen();
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     {
         if (env.IsDevelopment())
+        {
             app.UseDeveloperExceptionPage();
-
+            app.UseSwagger();
+            app.UseSwaggerUI();
+        }
+            
 
         app.UseRouting();
         app.UseHttpsRedirection();

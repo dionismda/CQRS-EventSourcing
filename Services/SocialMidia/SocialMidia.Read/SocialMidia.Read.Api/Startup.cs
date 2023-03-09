@@ -14,8 +14,7 @@ public class Startup
         services            
             .InjectSocialMidiaReadApplication()
             .InjectSocialMidiaReadDomain()
-            .InjectSocialMidiaReadInfrastructure(Configuration)
-            .InjectShared();
+            .InjectSocialMidiaReadInfrastructure(Configuration);
     }
 
     public void Configure(IApplicationBuilder app,IWebHostEnvironment env)

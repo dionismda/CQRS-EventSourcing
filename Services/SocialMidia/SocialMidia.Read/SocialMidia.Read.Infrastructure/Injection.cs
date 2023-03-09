@@ -15,15 +15,10 @@ public static class Injection
 
         services.AddScoped<IPostRepository, PostRepository>();
         services.AddScoped<ICommentRepository, CommentRepository>();
+        services.AddScoped<IEventConsumer, EventConsumer>();
+        services.AddScoped<IEventHandler, SocialMidiaEventHandler>();
 
-        services.RegisterEventHandler<PostEventHandler, PostCreatedEvent>();
-        services.RegisterEventHandler<PostEventHandler, MessageUpdatedEvent>();
-        services.RegisterEventHandler<PostEventHandler, PostLikedEvent>();
-        services.RegisterEventHandler<PostEventHandler, PostRemovedEvent>();
-
-        services.RegisterEventHandler<CommentEventHandler, CommentAddedEvent>();
-        services.RegisterEventHandler<CommentEventHandler, CommentUpdatedEvent>();
-        services.RegisterEventHandler<CommentEventHandler, CommentRemovedEvent>();
+        services.AddHostedService<ConsumerHostedService>();
 
         return services;
     }
