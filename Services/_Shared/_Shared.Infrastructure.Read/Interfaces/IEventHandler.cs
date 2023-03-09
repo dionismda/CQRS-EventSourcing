@@ -1,7 +1,12 @@
 ﻿namespace _Shared.Infrastructure.Read.Interfaces;
 
-public interface IEventHandler<in TEvent>
-    where TEvent : BaseEvent
+public interface IEventHandler
 {
-    Task HandleAsync(TEvent @event);
+    Task HandleAsync(PostCreatedEvent @event);
+    Task HandleAsync(MessageUpdatedEvent @event);
+    Task HandleAsync(PostLikedEvent @event);
+    Task HandleAsync(CommentAddedEvent @event);
+    Task HandleAsync(CommentUpdatedEvent @event);
+    Task HandleAsync(CommentRemovedEvent @event);
+    Task HandleAsync(PostRemovedEvent @event);
 }
