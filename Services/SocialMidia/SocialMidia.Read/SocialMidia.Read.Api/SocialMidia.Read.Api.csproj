@@ -10,7 +10,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\_Shared\_Shared.Api\_Shared.Api.csproj" />
     <ProjectReference Include="..\SocialMidia.Read.Application\SocialMidia.Read.Application.csproj" />
   </ItemGroup>
 

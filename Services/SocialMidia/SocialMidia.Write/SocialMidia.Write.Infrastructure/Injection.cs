@@ -4,10 +4,9 @@ public static class Injection
 {
     public static IServiceCollection InjectSocialMidiaWriteInfrastructure(this IServiceCollection services, IConfiguration configuration)
     {
-        services.AddScoped<IEventModel, EventModel>();
-        services.AddScoped<IEventStoreRepository, EventStoreRepository>();
         services.AddScoped<IEventSourcingHandler<PostAggregate>, PostEventSourcingHandler>();
-        services.AddScoped<IEventStore, SocialMidiaEventStore>();
+        services.AddScoped<IEventStore, EventStore>();
+        services.AddScoped<IEventStoreRepository, EventStoreRepository>();
         services.AddScoped<IEventProducer, EventProducer>();
 
         var mongoDbconfiguration = configuration.GetSection(nameof(MongoDbConfiguration));
@@ -21,7 +20,7 @@ public static class Injection
         var producerConfig = configuration.GetSection(nameof(ProducerConfig));
         services.Configure<ProducerConfig>(opt =>
         {
-            opt.BootstrapServers = mongoDbconfiguration[nameof(ProducerConfig.BootstrapServers)];
+            opt.BootstrapServers = producerConfig[nameof(ProducerConfig.BootstrapServers)];
         });
 
         BsonClassMap.RegisterClassMap<BaseEvent>();

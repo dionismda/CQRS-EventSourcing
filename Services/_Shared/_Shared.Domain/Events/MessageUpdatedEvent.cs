@@ -1,4 +1,4 @@
-namespace _Shared.Domain.Core.Events;
+namespace _Shared.Domain.Events;
 
 public class MessageUpdatedEvent : BaseEvent
 {

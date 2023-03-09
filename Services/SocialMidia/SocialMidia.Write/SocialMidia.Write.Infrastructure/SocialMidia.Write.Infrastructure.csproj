@@ -6,9 +6,16 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Confluent.Kafka" Version="1.8.2" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="7.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="7.0.1" />
+    <PackageReference Include="MongoDB.Bson" Version="2.19.0" />
+    <PackageReference Include="MongoDB.Driver" Version="2.19.0" />
+  </ItemGroup>
+
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\_Shared\_Shared.Infrastructure\_Shared.Infrastructure.Write.csproj" />
     <ProjectReference Include="..\SocialMidia.Write.Domain\SocialMidia.Write.Domain.csproj" />
   </ItemGroup>
 

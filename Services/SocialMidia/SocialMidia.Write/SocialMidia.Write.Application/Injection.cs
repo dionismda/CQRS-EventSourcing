@@ -13,6 +13,8 @@ public static class Injection
             .RegisterCommandHandler<PostCommandHandler, RemoveCommentCommand>()
             .RegisterCommandHandler<PostCommandHandler, DeletePostCommand>();
 
+        services.AddScoped<ICommandDispatcher, CommandDispatcher>();
+
         return services;
     }
 }
