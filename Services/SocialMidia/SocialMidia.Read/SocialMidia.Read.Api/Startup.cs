@@ -15,6 +15,8 @@ public class Startup
             .InjectSocialMidiaReadApplication()
             .InjectSocialMidiaReadDomain()
             .InjectSocialMidiaReadInfrastructure(Configuration);
+
+        services.AddControllers();
     }
 
     public void Configure(IApplicationBuilder app,IWebHostEnvironment env)

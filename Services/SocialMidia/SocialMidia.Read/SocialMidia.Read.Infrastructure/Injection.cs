@@ -10,6 +10,24 @@ public static class Injection
             opt.UseNpgsql(configuration.GetConnectionString("PostgresServer"));
         });
 
+        AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+
+
+        services.AddSingleton(new DatabaseContextFactory(opt =>
+        {
+            opt.UseNpgsql(configuration.GetConnectionString("PostgresServer"));
+        }));
+
+        var consumerConfig = configuration.GetSection(nameof(ConsumerConfig));
+        services.Configure<ConsumerConfig>(opt =>
+        {
+            opt.GroupId = consumerConfig[nameof(ConsumerConfig.GroupId)];
+            opt.BootstrapServers = consumerConfig[nameof(ConsumerConfig.BootstrapServers)];
+            opt.EnableAutoCommit = Boolean.Parse(consumerConfig[nameof(ConsumerConfig.EnableAutoCommit)]);
+            opt.AutoOffsetReset = AutoOffsetReset.Earliest;
+            opt.AllowAutoCreateTopics = Boolean.Parse(consumerConfig[nameof(ConsumerConfig.AllowAutoCreateTopics)]);
+        });
+
         var dataContext = services.BuildServiceProvider().GetRequiredService<DatabaseContext>();
         dataContext.Database.EnsureCreated();
 

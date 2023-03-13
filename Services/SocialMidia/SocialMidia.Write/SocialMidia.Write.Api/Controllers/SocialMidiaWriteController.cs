@@ -17,18 +17,19 @@ public class SocialMidiaWriteController : ControllerBase
     [HttpPost("newpost")]
     public async Task<ActionResult> NewPostAsync(NewPostCommand command)
     {
+        var id = Guid.NewGuid();
         try
         {
-            await _commandDispatcher.Handle<NewPostCommand>(command);
+            command.Id = id;
+            await _commandDispatcher.Handle(command);
 
             return StatusCode(StatusCodes.Status201Created, new BaseResponse
             {
-                Message = "New post creation request completed successfully!"
+                Message = $"New post creation request completed successfully! ID {id}"
             });
         }
         catch (InvalidOperationException ex)
         {
-            _logger.Log(LogLevel.Warning, ex, "Client made a bad request!");
             return BadRequest(new BaseResponse
             {
                 Message = ex.Message
@@ -36,8 +37,6 @@ public class SocialMidiaWriteController : ControllerBase
         }
         catch (Exception ex)
         {
-            _logger.Log(LogLevel.Error, ex, ex.Message);
-
             return StatusCode(StatusCodes.Status500InternalServerError, new BaseResponse
             {
                 Message = ex.Message

@@ -9,7 +9,7 @@ public static class Program
             CreateHostBuilder(args).Build().Run();
             return 0;
         }
-        catch
+        catch(Exception e)
         {
             return 1;
         }

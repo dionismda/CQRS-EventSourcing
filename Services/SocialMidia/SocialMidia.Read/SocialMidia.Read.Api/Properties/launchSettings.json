@@ -15,9 +15,10 @@
       "launchBrowser": true,
       "launchUrl": "swagger",
       "applicationUrl": "https://localhost:7073;http://localhost:5073",
-      "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
-      }
+        "environmentVariables": {
+            "ASPNETCORE_ENVIRONMENT": "Development",
+            "KAFKA_TOPIC": "SocialMidiaPostEvents"
+        }
     },
     "IIS Express": {
       "commandName": "IISExpress",
