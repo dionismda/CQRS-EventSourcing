@@ -17,15 +17,13 @@ public class SocialMidiaWriteController : ControllerBase
     [HttpPost("newpost")]
     public async Task<ActionResult> NewPostAsync(NewPostCommand command)
     {
-        var id = Guid.NewGuid();
         try
         {
-            command.Id = id;
             await _commandDispatcher.HandleAsync(command);
 
             return StatusCode(StatusCodes.Status201Created, new BaseResponse
             {
-                Message = $"New post creation request completed successfully! ID {id}"
+                Message = $"New post creation request completed successfully!"
             });
         }
         catch (InvalidOperationException ex)
@@ -265,6 +263,35 @@ public class SocialMidiaWriteController : ControllerBase
         catch (Exception ex)
         {
             const string SAFE_ERROR_MESSAGE = "Error while processing request to delete a post!";
+            return StatusCode(StatusCodes.Status500InternalServerError, new BaseResponse
+            {
+                Message = SAFE_ERROR_MESSAGE
+            });
+        }
+    }
+
+    [HttpPost]
+    public async Task<ActionResult> RestoreReadDbAsync()
+    {
+        try
+        {
+            await _commandDispatcher.HandleAsync(new RestoreReadDbCommand());
+
+            return StatusCode(StatusCodes.Status201Created, new BaseResponse
+            {
+                Message = "Read database restore request completed successfully!"
+            });
+        }
+        catch (InvalidOperationException ex)
+        {
+            return BadRequest(new BaseResponse
+            {
+                Message = ex.Message
+            });
+        }
+        catch (Exception ex)
+        {
+            const string SAFE_ERROR_MESSAGE = "Error while processing request to restore read database!";
             return StatusCode(StatusCodes.Status500InternalServerError, new BaseResponse
             {
                 Message = SAFE_ERROR_MESSAGE
