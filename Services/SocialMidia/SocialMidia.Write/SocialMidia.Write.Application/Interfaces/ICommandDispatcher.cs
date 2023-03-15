@@ -2,6 +2,6 @@
 
 public interface ICommandDispatcher
 {
-    Task Handle<TCommand>(TCommand command)
+    Task HandleAsync<TCommand>(TCommand command)
         where TCommand : BaseCommand;
 }

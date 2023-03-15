@@ -9,7 +9,7 @@ public class CommandDispatcher : ICommandDispatcher
         _serviceProvider = serviceProvider;
     }
 
-    public async Task Handle<TCommand>(TCommand command)
+    public async Task HandleAsync<TCommand>(TCommand command)
         where TCommand : BaseCommand
     {
         if (_serviceProvider.GetService(typeof(ICommandHandler<TCommand>)) is not ICommandHandler<TCommand> service)

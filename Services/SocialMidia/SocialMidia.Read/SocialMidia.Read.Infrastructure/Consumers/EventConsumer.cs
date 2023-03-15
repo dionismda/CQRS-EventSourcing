@@ -36,7 +36,7 @@ public class EventConsumer : IEventConsumer
             }
 
             handlerMethod.Invoke(_eventHandler, new object[] { @event });
-            //consumer.Commit(consumeResult);
+            consumer.Commit(consumeResult);
         }
     }
 }

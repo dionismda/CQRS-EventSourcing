@@ -4,3 +4,4 @@ global using SocialMidia.Write.Application.Commands;
 global using SocialMidia.Write.Application.Interfaces;
 global using SocialMidia.Write.Application.Responses;
 global using SocialMidia.Write.Infrastructure;
+global using SocialMidia.Write.Domain.Exceptions;
