@@ -3,5 +3,5 @@
 public interface IQueryHandler<in TQuery, TQueryResult>
     where TQuery : BaseQuery
 {
-    Task<TQueryResult> Handle(TQuery query);
+    Task<TQueryResult> HandleAsync(TQuery query);
 }

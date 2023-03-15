@@ -2,6 +2,6 @@
 
 public interface IQueryDispatcher
 {
-    Task<TResultQuery> Handle<TQuery, TResultQuery>(TQuery query)
+    Task<TResultQuery> HandleAsync<TQuery, TResultQuery>(TQuery query)
         where TQuery : BaseQuery;
 }
