@@ -3,10 +3,12 @@
 public class PostEventSourcingHandler : IEventSourcingHandler<PostAggregate>
 {
     private readonly IEventStore _eventStore;
+    private readonly IEventProducer _eventProducer;
 
-    public PostEventSourcingHandler(IEventStore eventStore)
+    public PostEventSourcingHandler(IEventStore eventStore, IEventProducer eventProducer)
     {
         _eventStore = eventStore;
+        _eventProducer = eventProducer;
     }
 
     public async Task<PostAggregate> GetByIdAsync(Guid aggregateId)
@@ -38,6 +40,8 @@ public class PostEventSourcingHandler : IEventSourcingHandler<PostAggregate>
 
             foreach (var @event in events)
             {
+                var topic = Environment.GetEnvironmentVariable("KAFKA_TOPIC");
+                await _eventProducer.ProduceAsync(topic, @event);
             }
         }
     }
