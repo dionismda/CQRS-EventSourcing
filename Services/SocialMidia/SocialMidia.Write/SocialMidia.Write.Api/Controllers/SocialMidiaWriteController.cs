@@ -4,13 +4,10 @@
 [Route("api/v1/")]
 public class SocialMidiaWriteController : ControllerBase
 {
-
-    private readonly ILogger<SocialMidiaWriteController> _logger;
     private readonly ICommandDispatcher _commandDispatcher;
 
-    public SocialMidiaWriteController(ILogger<SocialMidiaWriteController> logger, ICommandDispatcher commandDispatcher)
+    public SocialMidiaWriteController(ICommandDispatcher commandDispatcher)
     {
-        _logger = logger;
         _commandDispatcher = commandDispatcher;
     }
 
@@ -167,7 +164,6 @@ public class SocialMidiaWriteController : ControllerBase
         }
         catch (InvalidOperationException ex)
         {
-            _logger.Log(LogLevel.Warning, ex, "Client made a bad request!");
             return BadRequest(new BaseResponse
             {
                 Message = ex.Message
@@ -175,7 +171,6 @@ public class SocialMidiaWriteController : ControllerBase
         }
         catch (AggregateNotFoundException ex)
         {
-            _logger.Log(LogLevel.Warning, ex, "Could not retrieve aggregate, client passed an incorrect post ID targetting the aggregate!");
             return BadRequest(new BaseResponse
             {
                 Message = ex.Message
@@ -184,8 +179,6 @@ public class SocialMidiaWriteController : ControllerBase
         catch (Exception ex)
         {
             const string SAFE_ERROR_MESSAGE = "Error while processing request to edit a comment on a post!";
-            _logger.Log(LogLevel.Error, ex, SAFE_ERROR_MESSAGE);
-
             return StatusCode(StatusCodes.Status500InternalServerError, new BaseResponse
             {
                 Message = SAFE_ERROR_MESSAGE
@@ -208,7 +201,6 @@ public class SocialMidiaWriteController : ControllerBase
         }
         catch (InvalidOperationException ex)
         {
-            _logger.Log(LogLevel.Warning, ex, "Client made a bad request!");
             return BadRequest(new BaseResponse
             {
                 Message = ex.Message
@@ -216,7 +208,6 @@ public class SocialMidiaWriteController : ControllerBase
         }
         catch (AggregateNotFoundException ex)
         {
-            _logger.Log(LogLevel.Warning, ex, "Could not retrieve aggregate, client passed an incorrect post ID targetting the aggregate!");
             return BadRequest(new BaseResponse
             {
                 Message = ex.Message
