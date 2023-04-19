@@ -3,7 +3,8 @@
 public class PostCommandHandler : ICommandHandler<NewPostCommand>,
     ICommandHandler<EditMessageCommand>, ICommandHandler<LikePostCommand>,
     ICommandHandler<AddCommentCommand>, ICommandHandler<EditCommentCommand>,
-    ICommandHandler<RemoveCommentCommand>, ICommandHandler<DeletePostCommand>
+    ICommandHandler<RemoveCommentCommand>, ICommandHandler<DeletePostCommand>,
+    ICommandHandler<RestoreReadDbCommand>
 {
     private readonly IEventSourcingHandler<PostAggregate> _eventSourcingHandler;
 
@@ -65,5 +66,10 @@ public class PostCommandHandler : ICommandHandler<NewPostCommand>,
         aggregate.DeletePost(command.Username);
 
         await _eventSourcingHandler.SaveAsync(aggregate);
+    }
+
+    public async Task HandleAsync(RestoreReadDbCommand command)
+    {
+        await _eventSourcingHandler.RepublishEventsAsync();
     }
 }

@@ -11,7 +11,8 @@ public static class Injection
             .RegisterCommandHandler<PostCommandHandler, AddCommentCommand>()
             .RegisterCommandHandler<PostCommandHandler, EditCommentCommand>()
             .RegisterCommandHandler<PostCommandHandler, RemoveCommentCommand>()
-            .RegisterCommandHandler<PostCommandHandler, DeletePostCommand>();
+            .RegisterCommandHandler<PostCommandHandler, DeletePostCommand>()
+            .RegisterCommandHandler<PostCommandHandler, RestoreReadDbCommand>();
 
         services.AddScoped<ICommandDispatcher, CommandDispatcher>();
 
